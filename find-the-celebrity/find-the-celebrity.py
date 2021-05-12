@@ -16,8 +16,7 @@ class Solution:
         
         for i in range(n):
             if not can_be_celebrity[i]: continue
-            for j in range(n):
-                if i == j: continue
+            for j in range(i+1, n):
                 i2j, j2i = get_know(i, j), get_know(j, i)
                 if i2j == j2i:
                     can_be_celebrity[i] = can_be_celebrity[j] = False
