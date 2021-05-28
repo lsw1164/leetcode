@@ -11,11 +11,9 @@ class Solution:
             if len(st) == 0 or ch in opens:
                 st.append(ch)
                 continue
-            top = st[-1]
-            if top != close_to_open[ch]:
+            if st[-1] != close_to_open[ch]:
                 return False
             st.pop()
             
         return len(st) == 0
-                
                 
