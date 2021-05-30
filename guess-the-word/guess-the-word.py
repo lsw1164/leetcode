@@ -29,8 +29,7 @@ class Solution:
         
         while len(candidates) > 0:
             idx = candidates.pop()
-            word = wordlist[idx]
-            match_cnt = master.guess(word)
+            match_cnt = master.guess(wordlist[idx])
             if match_cnt == WORD_LEN: break
             candidates = list(filter(lambda c: guess_mat[idx][c] == match_cnt, candidates))
         
