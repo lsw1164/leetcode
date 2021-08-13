@@ -1,5 +1,3 @@
-const MOD = 1000000007n;
-
 function getMaxLen(cuts: number[]): bigint {
     let maxLen: number = 0;
     cuts.sort((a, b) => a-b)
@@ -11,5 +9,7 @@ function getMaxLen(cuts: number[]): bigint {
 }
 
 function maxArea(h: number, w: number, horizontalCuts: number[], verticalCuts: number[]): number {
-    return Number(getMaxLen([...horizontalCuts, 0, h]) * getMaxLen([...verticalCuts, 0, w]) % MOD);
+    const maxH: bigint = getMaxLen([...horizontalCuts, 0, h]);
+    const maxW: bigint = getMaxLen([...verticalCuts, 0, w]);
+    return Number(maxH * maxW % 1000000007n);
 };
