@@ -1,7 +1,7 @@
 class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         l = len(nums) - 2
-        while l >= 0 and nums[l+1] <= nums[l]:
+        while l >= 0 and nums[l] >= nums[l+1]:
             l -= 1
             
         if l >= 0:
