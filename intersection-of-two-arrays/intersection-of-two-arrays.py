@@ -1,7 +1,7 @@
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        num1_set = set(nums1)
-        return [num for num in set(nums2) if num in num1_set]
+        num1_set, num2_set = set(nums1), set(nums2)
+        return [num for num in num2_set if num in num1_set]
             
         
         
