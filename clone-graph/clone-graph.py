@@ -14,11 +14,13 @@ class Solution:
         cloned_node_table = [None] * 101
         
         def get_cloned_node(val):
+            nonlocal cloned_node_table 
             if not cloned_node_table[val]:
                 cloned_node_table[val] = Node(val)
             return cloned_node_table[val]
             
         def dfs(node):
+            nonlocal cloned_node_table, visit
             if not node: return None
             visit[node.val] = True
             cloned_node = get_cloned_node(node.val)
