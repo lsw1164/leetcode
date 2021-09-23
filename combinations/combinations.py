@@ -11,7 +11,7 @@ class Solution:
             
             for i in range(pivot, n): 
                 if len(comb) > 0 and comb[-1] >= nums[i]: 
-                    continue
+                    break
                 comb.append(nums[i])
                 update_combinations(i+1)
                 comb.pop()
