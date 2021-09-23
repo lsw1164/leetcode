@@ -1,5 +1,3 @@
-from copy import deepcopy 
-
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
         nums = range(1, n+1)
@@ -8,7 +6,7 @@ class Solution:
         
         def update_combinations(pivot):
             if k == len(comb):
-                combinations.append(deepcopy(comb))
+                combinations.append(list(comb))
                 return
             
             for i in range(pivot, n): 
