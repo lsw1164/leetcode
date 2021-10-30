@@ -10,11 +10,11 @@ function calcEquation(equations: string[][], values: number[], queries: string[]
     });
     
     for(const [first, firstMap] of calcMap) {
-        for(const [second, FstDivSec] of firstMap) {
+        for(const [second, fstDivSec] of firstMap) {
             const secondMap = calcMap.get(second);
             for(const [third, secDivTrd] of secondMap) {
                 const thirdMap = calcMap.get(third);
-                const fstDivTrd = FstDivSec*secDivTrd;
+                const fstDivTrd = fstDivSec*secDivTrd;
                 firstMap.set(third, fstDivTrd);
                 thirdMap.set(first, 1/fstDivTrd);
             }
