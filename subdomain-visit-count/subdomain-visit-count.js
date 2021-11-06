@@ -21,11 +21,10 @@ var subdomainVisits = function(cpdomains) {
 function getTotalSubDomains(domain) {
     const subDomains = [];
     let startIdx = 0;
-
     do {
         const subDomain = domain.slice(startIdx)
-        startIdx = domain.indexOf('.', startIdx) + 1;
         subDomains.push(subDomain);
+        startIdx = domain.indexOf('.', startIdx) + 1;
     } while(startIdx > 0);
 
     return subDomains;
