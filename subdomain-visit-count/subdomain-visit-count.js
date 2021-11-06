@@ -8,17 +8,17 @@ var subdomainVisits = function(cpdomains) {
     
     cpdomains.forEach(cpdomain => {
         const [visitCnt, domain] = cpdomain.split(' ');
-        getToalSubDomains(domain).forEach(subDomain => {
+        getTotalSubDomains(domain).forEach(subDomain => {
             const prev = domainMap.get(subDomain) ?? 0;
             domainMap.set(subDomain, prev + +visitCnt);
         });
     });
     
-    return [...domainMap].map(entry => `${entry[1]} ${entry[0]}`);
+    return [...domainMap].map(([subDomain, visitCnt]) => `${visitCnt} ${subDomain}`);
 };
     
 
-function getToalSubDomains(domain) {
+function getTotalSubDomains(domain) {
     const subDomains = [];
     let startIdx = 0;
 
