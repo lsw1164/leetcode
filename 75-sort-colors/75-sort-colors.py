@@ -5,9 +5,9 @@ class Solution:
         for num in nums:
             cnt_memo[num] += 1
         
-        cnt_idx = 0
+        color = 0
         for i in range(len(nums)):
-            while cnt_idx < CNT_MEMO_LEN and cnt_memo[cnt_idx] == 0:
-                cnt_idx += 1
-            nums[i] = cnt_idx
-            cnt_memo[cnt_idx] -= 1
+            while color < CNT_MEMO_LEN and cnt_memo[color] == 0:
+                color += 1
+            nums[i] = color
+            cnt_memo[color] -= 1
