@@ -1,6 +1,5 @@
 class Solution:
     
-    
     def numSquares(self, n: int) -> int:
         memo = [0] + [float('inf')] * n
         
