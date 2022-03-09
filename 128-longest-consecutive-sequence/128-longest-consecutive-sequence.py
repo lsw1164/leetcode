@@ -5,7 +5,8 @@ class Solution:
         hash_set = set(nums)
             
         longest = 1
-        for num in nums:
+        while len(nums):
+            num = nums.pop()
             if num - 1 in hash_set: continue
             
             consecutive = 1
