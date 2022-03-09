@@ -4,21 +4,26 @@ class Solution:
         
         hash_map = {}
         for num in nums:
-            hash_map[num] = None
+            hash_map[num] = 0
             
         longest = 0
-        while len(nums) > 0:
-            top = nums.pop()
-            if hash_map[top] != None: continue
+        for num in nums:
+            if hash_map[num] != 0: continue
             
             cnt = 1
-            cur = top-1
+            cur = num-1
+            
             while cur in hash_map:
-                if hash_map[cur] != None:
-                    cnt += hash_map[cur]
+                
+                consecutive = hash_map[cur]
+                if consecutive != 0:
+                    cnt += consecutive
                     break
+                    
                 cnt += 1
                 cur -= 1
-            hash_map[top] = cnt
+                
+            hash_map[num] = cnt
             longest = max(longest, cnt)
+            
         return longest
