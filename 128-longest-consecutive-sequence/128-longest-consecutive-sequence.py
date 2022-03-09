@@ -2,28 +2,17 @@ class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         if len(nums) <= 1: return len(nums)
         
-        hash_map = {}
+        hash_set = set(nums)
+            
+        longest = 1
         for num in nums:
-            hash_map[num] = 0
+            if num - 1 in hash_set: continue
             
-        longest = 0
-        for num in nums:
-            if hash_map[num] != 0: continue
-            
-            cnt = 1
-            cur = num-1
-            
-            while cur in hash_map:
+            consecutive = 1
+            while num + 1 in hash_set:
+                num += 1
+                consecutive += 1
                 
-                consecutive = hash_map[cur]
-                if consecutive != 0:
-                    cnt += consecutive
-                    break
-                    
-                cnt += 1
-                cur -= 1
-                
-            hash_map[num] = cnt
-            longest = max(longest, cnt)
+            longest = max(longest, consecutive)
             
         return longest
