@@ -29,8 +29,7 @@ class Solution:
             right = next_node
             
         left = prev
-        if list_len % 2 != 0:
-            right = right.next
+        right = right if list_len % 2 == 0 else right.next
             
         while right:
             if left.val != right.val: return False
