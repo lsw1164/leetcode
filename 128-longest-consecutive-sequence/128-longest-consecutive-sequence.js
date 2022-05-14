@@ -13,26 +13,19 @@ var longestConsecutive = function(nums) {
     
     nums.forEach(num => {
         
-        if(!set.has(num)) {
+        if(!set.has(num) || set.has(num - 1)) {
             return;
         }
         
         let curLen = 1;
         set.delete(num);
         
-        let leftSide = num - 1;
-        let rightSide = num + 1;
+        let nextConsecutiveNum = num + 1;
         
-        while(set.has(leftSide)) {
-            set.delete(leftSide);
+        while(set.has(nextConsecutiveNum)) {
+            set.delete(nextConsecutiveNum);
+            nextConsecutiveNum++;
             curLen++;
-            leftSide--;
-        }
-        
-        while(set.has(rightSide)) {
-            set.delete(rightSide);
-            curLen++;
-            rightSide++;
         }
         
         longestLen = Math.max(longestLen, curLen);
