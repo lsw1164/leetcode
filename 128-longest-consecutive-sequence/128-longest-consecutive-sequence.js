@@ -20,11 +20,9 @@ var longestConsecutive = function(nums) {
         let curLen = 1;
         set.delete(num);
         
-        let nextConsecutiveNum = num + 1;
-        
-        while(set.has(nextConsecutiveNum)) {
-            set.delete(nextConsecutiveNum);
-            nextConsecutiveNum++;
+        while(set.has(num + 1)) {
+            set.delete(num + 1);
+            num++;
             curLen++;
         }
         
