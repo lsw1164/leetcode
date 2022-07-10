@@ -13,8 +13,6 @@ class Solution:
             
             l, r, cur = get_rating(idx - 1), get_rating(idx + 1), get_rating(idx)
             
-            #print(f"idx: {idx},  l: {l},  cur: {cur},  r: {r}, memo: {memo}")
-            
             if cur <= l and cur <= r:
                 memo[idx] = 1
                 return 1
@@ -37,10 +35,8 @@ class Solution:
         for i in range(len(ratings)):
             canty_cnt = get_candy_cnt(i)
             total_canty_cnt += canty_cnt
-            #print(canty_cnt)
             
             
-        #print(memo)
         return total_canty_cnt
             
         
