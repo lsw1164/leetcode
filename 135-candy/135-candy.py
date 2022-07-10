@@ -31,8 +31,7 @@ class Solution:
         
         total_canty_cnt = 0
         for i in range(len(ratings)):
-            canty_cnt = get_candy_cnt(i)
-            total_canty_cnt += canty_cnt
+            total_canty_cnt += get_candy_cnt(i)
             
             
         return total_canty_cnt
