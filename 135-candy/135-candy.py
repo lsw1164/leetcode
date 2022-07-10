@@ -2,16 +2,14 @@ class Solution:
     
     def candy(self, ratings: List[int]) -> int:
         memo = [None] * len(ratings)
-        
-        def get_rating(idx):
-            if idx < 0 or idx >= len(ratings): return 0 
-            return ratings[idx]
             
         def get_candy_cnt(idx):
             if idx < 0 or idx >= len(ratings): return 0
             if memo[idx] != None: return memo[idx]
             
-            l, r, cur = get_rating(idx - 1), get_rating(idx + 1), get_rating(idx)
+            l = ratings[idx - 1] if idx > 0 else 0
+            r = ratings[idx + 1] if idx < len(ratings) - 1 else 0
+            cur = ratings[idx]
             
             if cur <= l and cur <= r:
                 memo[idx] = 1
